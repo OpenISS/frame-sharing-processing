@@ -1,4 +1,4 @@
-//import codeanticode.syphon.*;
+import codeanticode.syphon.*;
 
 /**
  * A simple wrapper of Shyphon and Spout for Processing on OS X and Windowx.
@@ -11,20 +11,17 @@
  */
 public class FrameSharingProcessing
 {
-  enum ESharingEngine
-  {
-    FRAME_SHARING_SYPHON,
-    FRAME_SHARING_SPOUT
-  }
+  public static final int FRAME_SHARING_SYPHON = 0;
+  public static final int FRAME_SHARING_SPOUT = 1;
   
-  ESharingEngine eFrameEngineType;
+  int iFrameEngineType;
   
   codeanticode.syphon.SyphonServer oSyphonServer;
   Spout oSpoutServer;
   
   public FrameSharingProcessing(String pstrServerName)
   {
-    switch(this.eFrameEngineType)
+    switch(this.iFrameEngineType)
     {
       case FRAME_SHARING_SYPHON:
         this.oSyphonServer = new SyphonServer(this, pstrServerName);
@@ -42,7 +39,7 @@ public class FrameSharingProcessing
 
   public void sendFrame()
   {
-    switch(this.eFrameEngineType)
+    switch(this.iFrameEngineType)
     {
       case FRAME_SHARING_SYPHON:
         this.oSyphonServer.sendScreen();
@@ -59,7 +56,7 @@ public class FrameSharingProcessing
   
   public void closeSender()
   {
-    switch(this.eFrameEngineType)
+    switch(this.iFrameEngineType)
     {
       case FRAME_SHARING_SYPHON:
         break;
