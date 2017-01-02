@@ -1,11 +1,12 @@
-// http://stackoverflow.com/questions/14288185/detecting-windows-or-linux
-public class UtilOSDetection
+// Trimmed version from: http://stackoverflow.com/questions/14288185/detecting-windows-or-linux
+// for Processing
+public static class UtilOSDetection
 {
     public static String soOS = System.getProperty("os.name").toLowerCase();
 
     public static boolean isWindows()
     {
-        return so.contains("win");
+        return soOS.contains("win");
     }
 
     public static boolean isMac()
@@ -18,8 +19,8 @@ public class UtilOSDetection
         return
             soOS.contains("nix")
             || soOS.contains("nux")
-            || soOS.indexOf("sunos")
-            || soOS.indexOf("aix");
+            || soOS.contains("sunos")
+            || soOS.contains("aix");
     }
 
     public static String getOS()
